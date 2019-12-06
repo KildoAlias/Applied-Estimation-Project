@@ -1,0 +1,13 @@
+Fig 2. research paper 05451872.pdf
+
+1) Slidea histogram över bild
+
+2)Om vi hittar pixlar med särskild färgkombination, ( möjlig threshold som representerar nyanser av svart), spara histogramet
+  detta görs dås de är möjligt att vi i varje frame har fler bolliknande saker
+
+3) Sätt label på pixlar med rätt färgkombination, 1 för OK 0 för not likely tex
+
+4) hitta masscentrum av pixlarna som är labeled 1
+
+5) Grattis, vi har punkten/punkterna som kan användas för hypotes 
+
