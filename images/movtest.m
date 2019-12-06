@@ -4,6 +4,8 @@ close all
 
 scale_factor=1/4;
 rate=10;
+histwidth=
+histheight=
 
   
 v = VideoReader("IMG_8580.MOV");
@@ -18,7 +20,9 @@ for i=1:rate:numberofframes
     videoframe=imresize(videoframe, scale_factor);
     image=rgb2gray(videoframe);
     
-  [H,W]=size(image);
+   object = slidinghisto(image,histwidth,histheight)
+  
+  
   
   
     
