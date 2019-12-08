@@ -24,5 +24,5 @@ minimum_value=min(min(costmap));
 [i,j]=find(costmap==minimum_value,1);
 min_h(1)=i;
 min_h(2)=j;
-I=image(min_h(1):min_h(1)+width,min_h(2):min_h(2)+width);               
+I=image(min_h(1):min_h(1)+histheight,min_h(2):min_h(2)+histwidth);               
 end

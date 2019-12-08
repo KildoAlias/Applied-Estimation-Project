@@ -1,4 +1,5 @@
 function idx_mass_centre = masscentre(matrix)
+matrix=double(matrix);
 
 %Input: Matrix with ZEROS for unlikely pixels, and ONES for likely pixels
 %Output: index of 2-D masscentre of matrix 

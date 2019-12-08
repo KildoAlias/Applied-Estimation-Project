@@ -1,10 +1,12 @@
 Tracking a ball:    
   Step 1: Get measurements for each videoframe
 
-    1) read videofile, get videoframes depending on rate variable. output all videoframes,  CODE: movtest.m
-    2) histogram sliding using ref-image and fram frome video,  output: best histogram CODE: slowslide.m
-    3) Use threshold_likely_pixels in order to set likely areas to ones and unlikely areas to zero.
-    4) Use masscentre to get index of most likely pixel in order to set cross marker /sending measurement to tracking.
+	1) read videofile, get videoframes depending on rate variable. output all videoframes,  CODE: movtest.m
+	2) histogram sliding using ref-image and fram frome video,  output: best histogram CODE: slowslide.m
+	3) Use threshold_likely_pixels in order to set likely areas to ones and unlikely areas to zero.
+	4) Use masscentre to get index of most likely pixel in order to set cross marker /sending measurement to tracking.
   
   Step 2: Track the ball
-    
+
+	1)	
+	2)
