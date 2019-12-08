@@ -1,0 +1,10 @@
+clc
+clear all
+close all
+scale_factor=; %rescaling of video
+rate=;          %sample rate of videos i.e 
+
+
+v = VideoReader("IMG_8580.MOV");
+
+videoframes=get_videoframes(v,scale_factor, rate)

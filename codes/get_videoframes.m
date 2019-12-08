@@ -13,12 +13,10 @@ mov=cell(Totalframes,1);
 
 k=1;
 for i=1:rate:numberofframes
+    
     videoframe=read(v,i);
     videoframe=imresize(videoframe, scale_factor);
-    image=rgb2gray(videoframe);
-    
-   object = slidinghisto(image,histwidth,histheight,threshold)
-     
+    image=rgb2gray(videoframe); 
     mov{k}=videoframe;
     
     k=k+1;
