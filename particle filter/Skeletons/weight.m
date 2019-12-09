@@ -9,9 +9,6 @@
 function S_bar = weight(S_bar, measurement,Q,outlier_threshold)
         
 
-    
-
-        
         nu=measurement-S_bar(1:2,:);
         Psi=(1/(2*pi*det(Q)^(0.5)))*exp(-(1/2)*nu'/(Q)*nu);
         Psi=diag(Psi);
@@ -23,12 +20,12 @@ function S_bar = weight(S_bar, measurement,Q,outlier_threshold)
     if mean(isnan(Psi))==1
         
         S_bar(3,:)=1/length(Psi);
-        disp('No measurement!')
+        disp('Object not detected,No measurement!')
         
         
     else
      
-        
+       disp('Object detected!')
        S_bar(3,:)=Psi/sum(Psi);
        
        

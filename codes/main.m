@@ -7,15 +7,14 @@ close all
     rate=2;  %sample rate of videos i.e each frame or i:th frame
     histheight=200; % Size of sliding histogram window
     histwidth=200;
-    greyscale_threshold=160; %threshold for setting likely values
+    greyscale_threshold=110; %threshold for setting likely values
     
 %Parameters for tracking
-    M=1000; % Particles 
-    Q=[50,0;0,50]; %Measurement noise
-    R=[1000,0;0,1000]; %Process noise
+    M=3000; % Particles 
+    Q=[20,0;0,20]; %Measurement noise
+    R=[500,0;0,500]; %Process noise
     outlier_threshold= 0.0000001; 
-    Resample_mode=2; % 1 for multinomial, 0 for systemartic
-    
+    Resample_mode=2; % 1 for multinomial, 2 for systematic
     
 
 refimage=imread("black_ball_white_back4.jpg"); %ref image 
@@ -34,17 +33,18 @@ S_bar(3,:)=1/M;
 
 figure()
 k=1;
+disp('Starting object detection and tracking...')
 for i=1:length(videoframes)   %For each videoframe
     
     
     [fullimageidx,~,best_image_histo]=slidinghisto(videoframes{i},refimage,histwidth,histheight); % Get best part of image that resulted in best match
     best_image=threshold_likely_pixels(best_image_histo,greyscale_threshold); %set likely pixels
     measurement=masscentre(best_image); % get masscentre
-    measurment(1)=fullimageidx(1)+measurement(1);
+    measurement(1)=fullimageidx(1)+measurement(1);
     measurement(2)=fullimageidx(2)+measurement(2);
     
     
-    
+    disp(['Frame: ',num2str(i)])
     S_bar=predict(S_bar, R, M );
     S_bar=weight(S_bar, measurement',Q,outlier_threshold);
     
@@ -57,24 +57,29 @@ for i=1:length(videoframes)   %For each videoframe
     end
            
      Prediction=round(mean(S_bar(1:2,:),2));
-        
+     
+
      hold off
      imshow(colorframes{i})
      hold on
-     scatter(S_bar(2,:),S_bar(1,:))
-     plot(Prediction(2),Prediction(1),'b+','MarkerSize',20,'LineWidth',2)
+     scatter(S_bar(2,:),S_bar(1,:),5,"filled")
+     plot(Prediction(2),Prediction(1),'g+','MarkerSize',15,'LineWidth',2)
     if isnan(measurement)~=1    
-        x=fullimageidx(1)+measurement(1);
-        y=fullimageidx(2)+measurement(2);
+        x=measurement(1);
+        y=measurement(2);
         pointer_pos{k}=[y,x];
         imagge{k}=videoframes{i};
         hold on
-        plot(y,x,'k+','MarkerSize',20,'LineWidth',2)
+        plot(y,x,'r.','MarkerSize',15,'LineWidth',2)
+        title('Object detected!, tracking...')
         k=k+1;
+    else
+        title('No object detected')
     end
     pause(0.001)
-    disp(num2str(i))
-end
 
+end
+title('No more frames, tracking done!')
+disp('No more frames, tracking done!')
 
 
