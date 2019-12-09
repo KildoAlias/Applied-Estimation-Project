@@ -9,17 +9,19 @@
 function S_bar = weight(S_bar, measurement,Q,outlier_threshold)
         
        
-       Psi = exp(-0.5 * ((measurement(1) - S_bar(1,:)).^2/Q(1) + (measurement(2) - S_bar(2,:)).^2 / Q(4)));
+       Psi = exp(-0.5 * ((measurement(1) - S_bar(1,:)).^2/Q(1,1) + (measurement(2) - S_bar(2,:)).^2 / Q(2,2)));
        
-    if isnan(Psi)|| mean(Psi)<outlier_threshold
+    if mean(isnan(Psi))==1
         
         S_bar(3,:)=1/length(Psi);
+        disp('Outlier detected!')
         
         
     else
      
         
-       S_bar(3,:)=Psi/sum(Psi);
+       S_bar(3,:)=Psi./sum(Psi);
+       disp(num2str(sum(Psi)))
        
        
        

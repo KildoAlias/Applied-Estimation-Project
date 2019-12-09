@@ -23,10 +23,10 @@ refimage=rgb2gray(refimage);                    % turn it grey
 refimage=imresize(refimage, scale_factor); % resize
 
 
-v = VideoReader("IMG_8594.MOV"); % read video
+v = VideoReader("IMG_8594.mov"); % read video
 
 
-[H,W,videoframes,~]=get_videoframes(v,scale_factor, rate); %get all videoframes
+[H,W,videoframes,colorframes]=get_videoframes(v,scale_factor, rate); %get all videoframes
 
 S_bar(1,:)=randi([1,H],1,M);    %Initializing S_bar
 S_bar(2,:)=randi([1,W],1,M);
@@ -46,32 +46,27 @@ for i=1:length(videoframes)   %For each videoframe
     
     switch Resample_mode
         case 1
-            S_bar=multinomial_resample(S_bar,M)
+            S_bar=multinomial_resample(S_bar,M);
             
         case 2
-           S_bar= systematic_resample(S_bar,M)
-    
-    
-    
-    
-    
-    
-    
-%     figure()
-%     imshow(videoframes{i})
-    
-    
-    
-%     if isnan(idx_mass_centre)~=1    
-%         x=fullimageidx(1)+idx_mass_centre(1);
-%         y=fullimageidx(2)+idx_mass_centre(2);
-%         pointer_pos{k}=[y,x];
-%         imagge{k}=videoframes{i};
-%         hold on
-%         plot(y,x,'r+','MarkerSize',20)
-%         k=k+1;
-%     end
-%     
+           S_bar= systematic_resample(S_bar,M);
+    end
+           
+     Prediction=round(mean(S_bar(1:2,:)));
+        
+     figure()
+     imshow(colorframes{i})
+    if isnan()~=1    
+        x=fullimageidx(1)+measurement(1);
+        y=fullimageidx(2)+measurement(2);
+        pointer_pos{k}=[y,x];
+        imagge{k}=videoframes{i};
+        hold on
+        plot(y,x,'r+','MarkerSize',20)
+        k=k+1;
+    end
+    scatter(S_bar(2,:),S_bar(1,:))
+    plot(Prediction(2),Prediction(1),'b+','MarkerSize',20)
  
   
 end

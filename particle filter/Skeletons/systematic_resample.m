@@ -13,6 +13,7 @@ function S = systematic_resample(S_bar,M)
         i=find(CDF>=r+(m-1)/M, 1 );
         S(:,m)=S_bar(:,i);
         S(3,m)=1/M;
+        
     end
 
 end

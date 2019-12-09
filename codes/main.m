@@ -4,17 +4,17 @@ close all
 
 %Parameters for CV
     scale_factor=1/5; %rescaling of video
-    rate=1;  %sample rate of videos i.e each frame or i:th frame
+    rate=2;  %sample rate of videos i.e each frame or i:th frame
     histheight=200; % Size of sliding histogram window
     histwidth=200;
     greyscale_threshold=50; %threshold for setting likely values
     
 %Parameters for tracking
     M=1000; % Particles 
-    Q=[1,0;0,1]; %Measurement noise
-    R=[1,0;0,1]; %Process noise
-    outlier_threshold= 0.001; 
-    Resample_mode=1; % 1 for multinomial, 0 for systemartic
+    Q=[0.001,0;0,0.001]; %Measurement noise
+    R=[1000,0;0,1000]; %Process noise
+    outlier_threshold= 0.00001; 
+    Resample_mode=2; % 1 for multinomial, 0 for systemartic
     
     
 
@@ -23,16 +23,16 @@ refimage=rgb2gray(refimage);                    % turn it grey
 refimage=imresize(refimage, scale_factor); % resize
 
 
-v = VideoReader("IMG_8594.MOV"); % read video
+v = VideoReader("IMG_8594.mov"); % read video
 
 
-[H,W,videoframes,~]=get_videoframes(v,scale_factor, rate); %get all videoframes
+[H,W,videoframes,colorframes]=get_videoframes(v,scale_factor, rate); %get all videoframes
 
 S_bar(1,:)=randi([1,H],1,M);    %Initializing S_bar
 S_bar(2,:)=randi([1,W],1,M);
 S_bar(3,:)=1/M;
 
-
+figure()
 k=1;
 for i=1:length(videoframes)   %For each videoframe
     
@@ -52,31 +52,24 @@ for i=1:length(videoframes)   %For each videoframe
            S_bar= systematic_resample(S_bar,M);
     end
            
-     Prediction=round(mean(S_bar(1:2,:)));
-    
-    
-    
-    
-    
-    
-    
-%     figure()
-%     imshow(videoframes{i})
-    
-    
-    
-%     if isnan(idx_mass_centre)~=1    
-%         x=fullimageidx(1)+idx_mass_centre(1);
-%         y=fullimageidx(2)+idx_mass_centre(2);
-%         pointer_pos{k}=[y,x];
-%         imagge{k}=videoframes{i};
-%         hold on
-%         plot(y,x,'r+','MarkerSize',20)
-%         k=k+1;
-%     end
-%     
- 
-  
+     Prediction=round(mean(S_bar(1:2,:),2));
+        
+     hold off
+     imshow(colorframes{i})
+    if isnan(measurement)~=1    
+        x=fullimageidx(1)+measurement(1);
+        y=fullimageidx(2)+measurement(2);
+        pointer_pos{k}=[y,x];
+        imagge{k}=videoframes{i};
+        hold on
+        plot(y,x,'r+','MarkerSize',20)
+        k=k+1;
+    end
+    hold on
+    scatter(S_bar(2,:),S_bar(1,:))
+    plot(Prediction(2),Prediction(1),'b+','MarkerSize',20)
+    pause(0.001)
+    disp(num2str(i))
 end
 
 
