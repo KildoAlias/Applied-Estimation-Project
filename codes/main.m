@@ -7,13 +7,13 @@ close all
     rate=2;  %sample rate of videos i.e each frame or i:th frame
     histheight=200; % Size of sliding histogram window
     histwidth=200;
-    greyscale_threshold=50; %threshold for setting likely values
+    greyscale_threshold=160; %threshold for setting likely values
     
 %Parameters for tracking
     M=1000; % Particles 
-    Q=[0.001,0;0,0.001]; %Measurement noise
+    Q=[50,0;0,50]; %Measurement noise
     R=[1000,0;0,1000]; %Process noise
-    outlier_threshold= 0.00001; 
+    outlier_threshold= 0.0000001; 
     Resample_mode=2; % 1 for multinomial, 0 for systemartic
     
     
@@ -40,9 +40,13 @@ for i=1:length(videoframes)   %For each videoframe
     [fullimageidx,~,best_image_histo]=slidinghisto(videoframes{i},refimage,histwidth,histheight); % Get best part of image that resulted in best match
     best_image=threshold_likely_pixels(best_image_histo,greyscale_threshold); %set likely pixels
     measurement=masscentre(best_image); % get masscentre
+    measurment(1)=fullimageidx(1)+measurement(1);
+    measurement(2)=fullimageidx(2)+measurement(2);
+    
+    
     
     S_bar=predict(S_bar, R, M );
-    S_bar=weight(S_bar, measurement,Q,outlier_threshold);
+    S_bar=weight(S_bar, measurement',Q,outlier_threshold);
     
     switch Resample_mode
         case 1
@@ -56,18 +60,18 @@ for i=1:length(videoframes)   %For each videoframe
         
      hold off
      imshow(colorframes{i})
+     hold on
+     scatter(S_bar(2,:),S_bar(1,:))
+     plot(Prediction(2),Prediction(1),'b+','MarkerSize',20,'LineWidth',2)
     if isnan(measurement)~=1    
         x=fullimageidx(1)+measurement(1);
         y=fullimageidx(2)+measurement(2);
         pointer_pos{k}=[y,x];
         imagge{k}=videoframes{i};
         hold on
-        plot(y,x,'r+','MarkerSize',20)
+        plot(y,x,'k+','MarkerSize',20,'LineWidth',2)
         k=k+1;
     end
-    hold on
-    scatter(S_bar(2,:),S_bar(1,:))
-    plot(Prediction(2),Prediction(1),'b+','MarkerSize',20)
     pause(0.001)
     disp(num2str(i))
 end

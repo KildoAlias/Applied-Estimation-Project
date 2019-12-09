@@ -9,7 +9,7 @@ function [S_bar] = predict(S, R, M )
 
     % M particles 
     % N
-   states=2; % x,y 
+    states=2; % x,y 
     
     S_bar(1:2,:)=S(1:2,:)+ randn(states,M).* repmat(sqrt(diag(R)),1,M); % prediction
     S_bar(3,:)=S(3,:); % passing on weights
