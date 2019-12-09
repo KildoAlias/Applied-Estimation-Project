@@ -30,7 +30,6 @@ function S_bar = weight(S_bar, measurement,Q,outlier_threshold)
      
         
        S_bar(3,:)=Psi/sum(Psi);
-       disp(num2str(sum(Psi)))
        
        
        
