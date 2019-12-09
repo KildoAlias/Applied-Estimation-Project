@@ -1,4 +1,4 @@
-function videoframes = get_videoframes(v, scale_factor, rate)
+function [H,W,videoframes,videoframe_color] = get_videoframes(v, scale_factor, rate)
 if nargin < 3
     rate=1;
 end
@@ -11,12 +11,17 @@ k=1;
 for i=1:rate:numberofframes
     
     videoframe=read(v,i);
-    videoframe=imresize(videoframe, scale_factor);
-    image=rgb2gray(videoframe); 
+    videoframe_c=imresize(videoframe, scale_factor);
+    videoframe_color{k}=videoframe_c;
+    
+    image=rgb2gray(videoframe_c); 
     mov{k}=image;
     
     k=k+1;
 end
+
 videoframes=mov;
+[H,W]=size(videoframes{1});
+
 
 end
