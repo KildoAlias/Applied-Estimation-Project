@@ -4,14 +4,7 @@
 \documentclass[journal,twoside]{IEEEtran}
 \usepackage{float}
 \usepackage{verbatim}
-
 \usepackage{cite}
-
-
-
-
-
-%
 \ifCLASSINFOpdf
    \usepackage[pdftex]{graphicx}
 
@@ -22,19 +15,7 @@
 \fi
 
 \usepackage[cmex10]{amsmath}
-
-
-
 \usepackage{array}
-
-
-
-
-
-
-
-
-%
 \usepackage{url}
 
 
@@ -47,15 +28,16 @@
 \begin{document}
 %
 
-\title{Evaluating LASSO and ARIMA Algorithms in Financial Forecasting}
+\title{Tracking with particle filter and histogram matching}
 
 %
 
-\author{Oskar Erlandsson and Andrej Wilzcek}
+\author{Oskar Erlandsson \\}
 
 
-\markboth{C1A: Forecasting in the financial market}%
-{C1A: Forecasting in the financial market}   % SAME 
+
+\markboth{Tracking with particle filter and histogram matching}%
+{Tracking with particle filter and histogram matching}   %
 
 
 \maketitle
@@ -63,75 +45,49 @@
 
 \begin{abstract}
 
-
+\begin{itemize}
+    \item \textbf{Beskriv pappret i helhet, ta en del från vardera section}
+\end{itemize}
 
 \end{abstract}
 
 
 \begin{IEEEkeywords}
-Stock market; Forecasting; LASSO; ARIMA; Model mixing
+Histogram mathching; Tracking; Particle Filter
 
 \end{IEEEkeywords}
 
 
-\section{Introduction}
+\section{Introduction and problem statement}
 
+\begin{itemize}
+    \item \textbf{Berätta kort om vad histogram matching}
+    \item \textbf{Berätta kort om vad particle filter är}
+    \item \textbf{Vad har andra gjort? referera.}
+    \item \textbf{Problem statement, berätta vad vi gjort}
+\end{itemize} 
+\subsection{Outline}
+\begin{itemize}
+    \item \textbf{Beskriv hur pappret kommer vara utformat}
+\end{itemize}
 
+\section{Implementation and Theory}
+\subsection{Histogram matching}
+\begin{itemize}
+    \item \textbf{Beskriv histogram matching}
+\end{itemize}
 
-
-
-\begin{align}
-    \boldsymbol{y} &= \begin{bmatrix}
-           y_{1} \\
-           y_{2} \\
-           \vdots \\
-           y_{N}
-         \end{bmatrix}, \quad
-       \boldsymbol{X} = \begin{bmatrix}
-           -\boldsymbol{x}_{1}^\top- \\
-            -\boldsymbol{x}_{2}^\top-  \\
-           \vdots \\
-            -\boldsymbol{x}_{N}^\top- 
-         \end{bmatrix}, \quad
-         \boldsymbol{w} = \begin{bmatrix}
-           w_{1} \\
-           w_{2} \\
-           \vdots \\
-           w_{d}
-         \end{bmatrix},
-    \label{Linear_vectors}
-\end{align}
-
-
-
-
-\section{Model description and methodology}
-
-
-
-\subsection{LASSO}
-
-
-
-
-\subsection{Implementation}
-\label{Imp}
-\cite{}.
-
-
-\section{Evaluation criteria} 
-
-
-
-
-
-
-
+\subsection{Particle filter}
+\begin{itemize}
+    \item \textbf{Beskriv particle filter}
+\end{itemize}
 
 
 \section{Results}
-
-
+\label{Results}
+\begin{itemize}
+    \item \textbf{Bilder på resultat, ej mkt text}
+\end{itemize}
 
 
 
@@ -149,17 +105,16 @@ Stock market; Forecasting; LASSO; ARIMA; Model mixing
 \section{Discussion}
 \label{Discussion}
 
-
-
-\subsection{Assumptions}
-
-\subsection{Future Work}
-
-
-
-
+\subsection{Limitations and future work}
+'\begin{itemize}
+    \item \textbf{Diskutera resultatet}
+    \item \textbf{Diskutera vad som kan göras för att förbättra resultat och göra metoden mer allmän}
+\end{itemize}
 
 \section{Conclusion}
+\begin{itemize}
+    \item \textbf{Kort conclusion om vad som gjorts}
+\end{itemize}
 
 
 %
@@ -167,14 +122,12 @@ Stock market; Forecasting; LASSO; ARIMA; Model mixing
 
 \appendices
 
-\section{R code for ARIMA}
-\footnotesize{https://gits-15.sys.kth.se/oerl/ARIMA-R/blob/master/README.md} 
-\normalsize
+\section{MATLAB code}
 
 
 
-\section*{Acknowledgment}
-\cite{fasshauer2011positive}
+
+
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
@@ -184,6 +137,9 @@ Stock market; Forecasting; LASSO; ARIMA; Model mixing
 \bibliography{REF}
 
 \end{document}
+
+
+
 
 
 BIBTEX FIL, SKAPA EN FIL I SAMMA FOLDER SOM HETER REF.BIB:
