@@ -1,0 +1,198 @@
+ MALL TILL IEEE:
+
+
+\documentclass[journal,twoside]{IEEEtran}
+\usepackage{float}
+\usepackage{verbatim}
+
+\usepackage{cite}
+
+
+
+
+
+%
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+
+\else
+
+   \usepackage[dvips]{graphicx}
+
+\fi
+
+\usepackage[cmex10]{amsmath}
+
+
+
+\usepackage{array}
+
+
+
+
+
+
+
+
+%
+\usepackage{url}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\pagenumbering{gobble}
+\setcounter{page}{0}
+
+\begin{document}
+%
+
+\title{Evaluating LASSO and ARIMA Algorithms in Financial Forecasting}
+
+%
+
+\author{Oskar Erlandsson and Andrej Wilzcek}
+
+
+\markboth{C1A: Forecasting in the financial market}%
+{C1A: Forecasting in the financial market}   % SAME 
+
+
+\maketitle
+
+
+\begin{abstract}
+
+
+
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+Stock market; Forecasting; LASSO; ARIMA; Model mixing
+
+\end{IEEEkeywords}
+
+
+\section{Introduction}
+
+
+
+
+
+\begin{align}
+    \boldsymbol{y} &= \begin{bmatrix}
+           y_{1} \\
+           y_{2} \\
+           \vdots \\
+           y_{N}
+         \end{bmatrix}, \quad
+       \boldsymbol{X} = \begin{bmatrix}
+           -\boldsymbol{x}_{1}^\top- \\
+            -\boldsymbol{x}_{2}^\top-  \\
+           \vdots \\
+            -\boldsymbol{x}_{N}^\top- 
+         \end{bmatrix}, \quad
+         \boldsymbol{w} = \begin{bmatrix}
+           w_{1} \\
+           w_{2} \\
+           \vdots \\
+           w_{d}
+         \end{bmatrix},
+    \label{Linear_vectors}
+\end{align}
+
+
+
+
+\section{Model description and methodology}
+
+
+
+\subsection{LASSO}
+
+
+
+
+\subsection{Implementation}
+\label{Imp}
+\cite{}.
+
+
+\section{Evaluation criteria} 
+
+
+
+
+
+
+
+
+
+\section{Results}
+
+
+
+
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=8cm]{}
+\caption{}
+\label{}
+\end{figure}
+
+
+
+
+\section{Discussion}
+\label{Discussion}
+
+
+
+\subsection{Assumptions}
+
+\subsection{Future Work}
+
+
+
+
+
+\section{Conclusion}
+
+
+%
+
+
+\appendices
+
+\section{R code for ARIMA}
+\footnotesize{https://gits-15.sys.kth.se/oerl/ARIMA-R/blob/master/README.md} 
+\normalsize
+
+
+
+\section*{Acknowledgment}
+\cite{fasshauer2011positive}
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\bibliographystyle{IEEEtran}
+
+\bibliography{REF}
+
+\end{document}
+
+
+BIBTEX FIL, SKAPA EN FIL I SAMMA FOLDER SOM HETER REF.BIB:
+
+  @article{fasshauer2011positive,
+  title={Positive definite kernels: past, present and future},
+  author={Fasshauer, Gregory E},
+  journal={Dolomite Research Notes on Approximation},
+  volume={4},
+  pages={21--63},
+  year={2011}
+  }

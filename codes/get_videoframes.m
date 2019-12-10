@@ -3,7 +3,7 @@ if nargin < 3
     rate=1;
 end
 
-numberofframes=v.NumberOfFrames-2;  
+numberofframes=v.NumberOfFrames-44;  % stop when out of picture
 Totalframes=numberofframes/rate;
 mov=cell(Totalframes,1);
 

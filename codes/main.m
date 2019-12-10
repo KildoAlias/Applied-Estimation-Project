@@ -3,26 +3,26 @@ clear all
 close all
 
 %Parameters for CV
-    scale_factor=1/5; %rescaling of video
+    scale_factor=1/10; %rescaling of video
     rate=2;  %sample rate of videos i.e each frame or i:th frame
-    histheight=200; % Size of sliding histogram window
-    histwidth=200;
-    greyscale_threshold=110; %threshold for setting likely values
+    histheight=100; % Size of sliding histogram window
+    histwidth=100;
+    greyscale_threshold=90; %threshold for setting likely values
     
 %Parameters for tracking
     M=3000; % Particles 
     Q=[20,0;0,20]; %Measurement noise
     R=[500,0;0,500]; %Process noise
-    outlier_threshold= 0.0000001; 
+    outlier_threshold= 0.0000001;  %Outlier measurement
     Resample_mode=2; % 1 for multinomial, 2 for systematic
     
 
-refimage=imread("black_ball_white_back4.jpg"); %ref image 
+refimage=imread("nybild.JPG"); %ref image 
 refimage=rgb2gray(refimage);                    % turn it grey
 refimage=imresize(refimage, scale_factor); % resize
 
 
-v = VideoReader("IMG_8594.mov"); % read video
+v = VideoReader("nyfilm.mov"); % read video
 
 
 [H,W,videoframes,colorframes]=get_videoframes(v,scale_factor, rate); %get all videoframes
