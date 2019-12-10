@@ -144,11 +144,77 @@ Histogram mathching; Tracking; Particle Filter
 
 BIBTEX FIL, SKAPA EN FIL I SAMMA FOLDER SOM HETER REF.BIB:
 
-  @article{fasshauer2011positive,
-  title={Positive definite kernels: past, present and future},
-  author={Fasshauer, Gregory E},
-  journal={Dolomite Research Notes on Approximation},
-  volume={4},
-  pages={21--63},
-  year={2011}
-  }
+% ---------------------------------------------
+% Efficient histogram-based sliding window
+% ---------------------------------------------
+
+@INPROCEEDINGS{5540049,
+author={Y. {Wei} and L. {Tao}},
+booktitle={2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition},
+title={Efficient histogram-based sliding window},
+year={2010},
+volume={},
+number={},
+pages={3003-3010},
+keywords={computer vision;histogram-based sliding window;computer vision problems;histogram-based objective functions computation;natural images spatial coherence;object detection;object tracking;image saliency analysis;state-of-the-art techniques;Histograms;Object detection;Computer vision;Computational efficiency;Spatial coherence;Search methods;Asia;Image analysis;Performance analysis;Frequency measurement},
+doi={10.1109/CVPR.2010.5540049},
+ISSN={1063-6919},
+month={June},}
+
+
+
+% ---------------------------------------------
+% Real Time Object Detection and Tracking: Histogram Matching and Kalman Filter Approach
+% ---------------------------------------------
+
+
+@INPROCEEDINGS{5451872,
+author={ {Madhur Mehta} and {Chandni Goyal} and M. C. {Srivastava} and R. C. {Jain}},
+booktitle={2010 The 2nd International Conference on Computer and Automation Engineering (ICCAE)},
+title={Real time object detection and tracking: Histogram matching and Kalman filter approach},
+year={2010},
+volume={5},
+number={},
+pages={796-801},
+keywords={image matching;Kalman filters;object detection;video signal processing;video surveillance;real time object detection;real time object tracking;real-time object tracking system;static camera;video frames;automated object tracking system;discrete Kalman filter technique;histogram matching algorithm;low quality videos;surveillance applications;Object detection;Histograms;Cameras;Video surveillance;Motion detection;Frequency;Real time systems;Robustness;Video sequences;Image segmentation;object tracking;absolute frame subtraction;histogram matching},
+doi={10.1109/ICCAE.2010.5451872},
+ISSN={null},
+month={Feb},}
+
+
+% ---------------------------------------------
+% Histogram matching for color detection: A preliminary study
+% ---------------------------------------------
+
+@INPROCEEDINGS{5561637,
+author={F. S. {Mohamad} and A. A. {Manaf} and S. {Chuprat}},
+booktitle={2010 International Symposium on Information Technology},
+title={Histogram matching for color detection: A preliminary study},
+year={2010},
+volume={3},
+number={},
+pages={1679-1684},
+keywords={image colour analysis;image matching;histogram matching;color detection;Euclidean distance;histogram intersection;cosine distances;quadratic distances;image histograms;color histograms;oil palm fruits;Histograms;Image color analysis;Feature extraction;Pixel;Gray-scale;Kernel;Indexing;Similarity Measure;Histogram Matching;Image Histogram;Color Histogram},
+doi={10.1109/ITSIM.2010.5561637},
+ISSN={2155-897},
+month={June},}
+
+
+% ---------------------------------------------
+% HISTOGRAM-BASED TEMPLATE MATCHING OBJECT DETECTION IN IMAGES WITH VARYING BRIGHTNESS AND CONTRAST
+% ---------------------------------------------
+
+@inproceedings{10.1117/12.703651,
+author = {Christina D. Schrider and Julie A. Skipper and Daniel W. Repperger},
+title = {{Histogram-based template matching for object detection in images with varying contrast}},
+volume = {6497},
+booktitle = {Image Processing: Algorithms and Systems V},
+editor = {Jaakko T. Astola and Karen O. Egiazarian and Edward R. Dougherty},
+organization = {International Society for Optics and Photonics},
+publisher = {SPIE},
+pages = {94 -- 101},
+keywords = {object detection, target detection, computer-aided diagnosis, template matching, image contrast},
+year = {2007},
+doi = {10.1117/12.703651},
+URL = {https://doi.org/10.1117/12.703651}
+}
